@@ -4,7 +4,7 @@
 This assessment documents the security evaluation of the Responder environment. By exploiting insecure name-resolution protocols (LLMNR/NBT-NS) and capturing Net-NTLMv2 authentication handshakes via Responder, an attacker can extract and crack administrative password hashes offline, leading to total infrastructure compromise through Windows Remote Management (WinRM).
 
 ## 🛠️ Technical Scope & Methodology
-- **Domain:** `unika.htb`
+- **Domain:** `unika.net`
 - **Exposed Services:** HTTP (Port 80), WinRM (Port 5985), Pando-pub (Port 7680)
 - **Core Vectors:** LLMNR/NBT-NS Poisoning, NTLMv2 Hash Interception, Offline Dictionary Attacks, WinRM Session Abuse.
 - **Tools Utilized:** Nmap, Responder, John the Ripper, Evil-WinRM.
@@ -15,7 +15,7 @@ This assessment documents the security evaluation of the Responder environment. 
 
 ### Phase 1: Reconnaissance & Port Scanning
 Comprehensive TCP port scanning via `nmap` identified three active services on the target system[cite: 1]:
-- **Port 80:** HTTP web service hosting the primary application domain (`unika.htb`).
+- **Port 80:** HTTP web service hosting the primary application domain (`unika.net`).
 - **Port 5985:** WinRM (Windows Remote Management), standard administrative interface.
 - **Port 7680:** Pando-pub service.
 
@@ -42,7 +42,7 @@ The dictionary attack successfully recovered the plaintext password linked to th
 Armed with valid administrative credentials, interactive remote access was established directly through the WinRM service on port 5985:
 
 ```bash
-evil-winrm -i 10.129.223.101 -P 5985 -u administrator
+evil-winrm -i <IP> -P 5985 -u administrator
 ```
 
 Authenticating successfully granted an interactive shell with full administrative privileges over the target host.

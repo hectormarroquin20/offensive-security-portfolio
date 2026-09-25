@@ -10,12 +10,12 @@ The **Nexus** assessment represents a complete multi-tier compromise involving w
 
 ### Phase 1: Reconnaissance & Attack Surface Enumeration
 * **Virtual Host Discovery:** Initial network mapping and enumeration of the target exposed two primary virtual subdomains:
-  - `git.nexus.htb` (Hosting an internal Gitea instance for source code control).
-  - `billing.nexus.htb` (Hosting Krayin CRM, handling business logic and file management modules).
-* **Initial Code Access:** Utilizing preliminary credentials discovered during reconnaissance for the user `jones` (`y27xb3ha!!74GbR`), access was verified against the local Gitea repository (`http://git.nexus.htb/jones/rce.git`).
+  - `git.nexus.net` (Hosting an internal Gitea instance for source code control).
+  - `billing.nexus.net` (Hosting Krayin CRM, handling business logic and file management modules).
+* **Initial Code Access:** Utilizing preliminary credentials discovered during reconnaissance for the user `jones` (`y27xb3ha!!74GbR`), access was verified against the local Gitea repository (`http://git.nexus.net/jones/rce.git`).
 
 ### Phase 2: Initial Access & Remote Code Execution (RCE)
-* **File Upload Logic Flaw:** The Krayin CRM instance running on `billing.nexus.htb` featured a vulnerable TinyMCE file manager module within its public storage path.
+* **File Upload Logic Flaw:** The Krayin CRM instance running on `billing.nexus.net` featured a vulnerable TinyMCE file manager module within its public storage path.
 * **Payload Execution:** A malicious PHP script disguised/uploaded via the file manager interface was successfully executed by the web server daemon.
 * **Listener & Session Stabilization:**
   - A Netcat listener was established on the attacker's host:
@@ -101,7 +101,7 @@ The **Nexus** assessment represents a complete multi-tier compromise involving w
 * **Root Shell Access:** Upon automated background execution of the synchronization script by `root`, the public key was written to the administrative authorized keys file, permitting direct administrative access:
 
   ```bash
-  ssh -i /tmp/.k root@nexus.htb
+  ssh -i /tmp/.k root@nexus.net
   ```
 
 ---

