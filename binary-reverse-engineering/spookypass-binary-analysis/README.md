@@ -56,3 +56,4 @@ gdb ./<binary_name>
 (gdb) break *<memory_address_before_strcmp>
 (gdb) continue
 (gdb) p (char*)<memory_address_containing_secret>
+```

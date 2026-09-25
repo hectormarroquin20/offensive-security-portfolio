@@ -4,7 +4,6 @@
 This assessment documents the security evaluation of the Responder environment. By exploiting insecure name-resolution protocols (LLMNR/NBT-NS) and capturing Net-NTLMv2 authentication handshakes via Responder, an attacker can extract and crack administrative password hashes offline, leading to total infrastructure compromise through Windows Remote Management (WinRM).
 
 ## 🛠️ Technical Scope & Methodology
-- **Target IP:** `10.129.223.101`
 - **Domain:** `unika.htb`
 - **Exposed Services:** HTTP (Port 80), WinRM (Port 5985), Pando-pub (Port 7680)
 - **Core Vectors:** LLMNR/NBT-NS Poisoning, NTLMv2 Hash Interception, Offline Dictionary Attacks, WinRM Session Abuse.

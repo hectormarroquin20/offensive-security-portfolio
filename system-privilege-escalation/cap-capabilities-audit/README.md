@@ -4,7 +4,6 @@
 This document outlines the security audit and penetration testing process conducted against the **Cap** machine (`10.129.126.65`)[cite: 22]. The attack chain includes port reconnaissance[cite: 22], cleartext credential extraction via network traffic capture analysis (`.pcap`)[cite: 22], initial SSH access[cite: 22], and privilege escalation to `root` via misconfigured Linux capabilities on a Python binary[cite: 23].
 
 ## 🛠️ Technical Scope & Methodology
-* **Target IP:** `10.129.126.65`[cite: 22].
 * **Analyzed Services:** FTP (Port 21), SSH (Port 22), and HTTP (Port 80)[cite: 22].
 * **Attack Vectors:** Network traffic analysis with `tshark`[cite: 22], credential reuse[cite: 22], and Linux capability abuse on system binaries (`python3.8`)[cite: 23].
 * **Tools Used:** Nmap, tshark, FTP client, SSH client[cite: 22, 23].
